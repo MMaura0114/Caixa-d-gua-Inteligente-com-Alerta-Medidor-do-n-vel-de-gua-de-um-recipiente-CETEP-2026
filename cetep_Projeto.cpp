@@ -4,14 +4,14 @@
 // Configuração do Display I2C (Endereço comum: 0x27)
 LiquidCrystal_I2C lcd(0x27, 16, 2); // 16 colunas e 2 linhas
 
-// Pinos dos Sensores e Atuadores
+// Pinos dos Sensores e Atuadores (Adaptados para Arduino Nano)
 #define TRIG_PIN 5              // Pino de disparo do sensor ultrassônico
-#define ECHO_PIN 18             // Pino de recepção do sensor ultrassônico
+#define ECHO_PIN 6              // Pino de recepção do sensor ultrassônico
 
-#define LED_VERDE 19            // Pino do LED verde
-#define LED_AMARELO 4           // Pino do LED amarelo
-#define LED_VERMELHO 2          // Pino do LED vermelho
-#define BUZZER 15               // Pino do buzzer
+#define LED_VERDE 2            // Pino do LED verde
+#define LED_AMARELO 3           // Pino do LED amarelo
+#define LED_VERMELHO 4          // Pino do LED vermelho
+#define BUZZER 7                // Pino do buzzer
 
 // Altura total do reservatório em centímetros (ajuste para seu recipiente)
 const float ALTURA_TOTAL_CM = 20.0;
@@ -22,7 +22,7 @@ const unsigned long INTERVALO_BIP = 500; // 500 ms
 bool estadoBuzzer = false;
 
 void setup() {
-  Serial.begin(115200); // Inicializa a comunicação serial para depuração
+  Serial.begin(9600); // Inicializa a comunicação serial padrão do Arduino Nano
 
   pinMode(TRIG_PIN, OUTPUT);// Configura o pino TRIG como saída
   pinMode(ECHO_PIN, INPUT);// Configura o pino ECHO como entrada
